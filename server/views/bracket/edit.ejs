@@ -1,0 +1,75 @@
+<% include ../partials/header.ejs %>
+<% include ../partials/main_nav.ejs %>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <h3>Create Tournament</h3>
+        <form class="form" method="POST">
+
+            <div class="form-group">
+                <label for="tNameTextField">Tournament Name</label>
+                <input type="text" class="form-control"
+                id="tNameTextField"
+                placeholder="Tournament Name"
+                name="tournamentName" 
+                value="<%=bracket.tournamentName %>"
+                required>
+            </div>
+
+            <div class="form-group">
+                <label for="gameTextField">Type of Game</label>
+                <input type="text" class="form-control"
+                id="gameTextField"
+                placeholder="Game name"
+                name="gameType" 
+                value="<%=bracket.gameType %>"
+                required>
+            </div>
+            <div class="form-group">
+                <label for="desTextField">Description</label>
+                <input type="texarea" class="form-control"
+                id="desTextField"
+                placeholder="Write a description for your tournament"
+                name="description" 
+                value="<%=bracket.description %>"
+                required>
+            </div>
+            <div class="form-group">
+                <label for="desTextField">Number of Teams</label>
+                <input type="texarea" class="form-control"
+                id="desTextField"
+                placeholder="Write a description for your tournament"
+                name="description" 
+                value="<%=bracket.players %>"
+                required>
+            </div>
+	
+            <% for (let count =0; count < bracket.teams.length ; count++) { %> 
+            <!--the 8 here can be replaced with a variable from the url but 
+            I want to wait for more of the site to work out this part-->
+                        <div class="form-group">
+                            <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams"
+                            value="<%=bracket.teams[count]%>"
+                            required>
+                        </div>
+                <% } %>	
+	           <button class="btn btn-primary" type="submit" >
+                 Submit</button>
+           
+                <a href="/bracket-list" class="btn btn-warning">
+                    <i class="fas fa-undo"></i> Cancel</a>
+
+        </form>
+    </div>
+
+</div>
+</div>
+
+<% include ../partials/bottom_nav.ejs %>
+<% include ../partials/footer.ejs %>
+
