@@ -14,7 +14,7 @@ module.exports.displayBracketList = (req, res, next) => {
     } else {
     
 
-      res.render("bracket/list", { title: "Bracket", BracketList: bracketList });
+      res.render("bracket/teamlist", { title: "Bracket", BracketList: bracketList });
       //render bracket.ejs and pass title and Bracketlist variable we are passing bracketList object to BracketList property
     }
   });
@@ -46,14 +46,26 @@ module.exports.addprocesspage = (req, res, next) => {
   })
 };
 
-module.exports.addPlayerpage = (req, res, next) => {
-  res.render("bracket/createPageAddplayers", { title: "Add TeamBracket" });
+module.exports.addPlayerpage = async (req, res, next) => {
+  let id = req.params.id; //id of actual object
+
+  Bracket.findById(id, (err, bracketoshow) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      //show the edit view
+      res.render("bracket/list", { title: "Tournament Bracket", bracket: bracketoshow });
+      console.log(bracketoshow);
+    }
+  });
+
 };
 
 
 
 
-module.exports.displayeditpage = (req, res, next) => {
+module.exports.displayeditpage =  (req, res, next) => {
   let id = req.params.id; //id of actual object
 
   Bracket.findById(id, (err, bracketoedit) => {
@@ -90,7 +102,7 @@ module.exports.processingeditpage = (req, res, next) => {
   });
 };
 
-module.exports.deletepage = (req, res, next) => {
+module.exports.deletepage = async (req, res, next) => {
   let id = req.params.id;
   Bracket.remove({ _id: id }, (err) => {
     if (err) {

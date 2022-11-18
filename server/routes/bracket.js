@@ -13,11 +13,11 @@ let bracketController = require("../controllers/bracket");
 // /* GET Route for displaying Add page - Create OPeration */
 router.get("/createPage", bracketController.addpage);
 
+router.get("/show/:id", bracketController.addPlayerpage);
+
 // /* POST Route for processing Add page - Create OPeration */
 router.post("/createPage", bracketController.addprocesspage);
 
-// /* GET Route for displaying Add page - Create OPeration */
-router.get("/createPageAddplayers", bracketController.addPlayerpage);
 
 
 // /* GET Route for displaying Edit page -UPDATE OPeration */

@@ -8,6 +8,7 @@
       <h1><%=title %></h1>
      
       <br />
+     
       <table class="table table-bordered table-striped table-hover">
         <!--HEader row-->
         <tr>
@@ -17,15 +18,15 @@
           <th class="text-center">Description</th>
           </tr>
 
-        <% for (let count=0; count<1; count++){%>
+        
           <tr>
-            <td class="text-centre "><%=BracketList[0].tournamentName %></td>
-            <td class="text-centre "><%=BracketList[0].gameType %></td>
-            <td class="text-centre "><%=BracketList[0].players %></td>
-            <td class="text-centre "><%=BracketList[0].description %></td>
+            <td class="text-centre "><%=bracket.tournamentName %></td>
+            <td class="text-centre "><%=bracket.gameType %></td>
+            <td class="text-centre "><%=bracket.players %></td>
+            <td class="text-centre "><%=bracket.description %></td>
             
           </tr>
-          <%}%>
+          
       </table>
       <br>
       <table>
@@ -34,9 +35,9 @@
  
           </tr>
         <!--Repetable Templet row-->
-        <% for (let count=0; count<BracketList[0].teams.length; count++){%>
+        <% for (let count=0; count<bracket.teams.length; count++){%>
         <tr class="table-noborder bg-dark">
-         <td class="text-center bg-danger width-30px"><%= BracketList[0].teams[count] %></td>               
+         <td class="text-center bg-danger "><%= bracket.teams[count] %></td>               
         </tr>
        
         <%}%>
@@ -46,10 +47,10 @@
 
       </div>
       <button class="btn btn-primary btn-sm">
-         <a href="/bracket-list/edit/<%= BracketList[0]._id %>" style="text-decoration:none; color:white">Edit</a>
+         <a href="/bracket-list/edit/<%= bracket._id %>" style="text-decoration:none; color:white">Edit</a>
        </button>
         <button class="btn btn-warning btn-sm" >
-        <a href="/bracket-list/delete/<%= BracketList[0]._id %>" style="text-decoration:none; color:white">
+        <a href="/bracket-list/delete/<%= bracket._id %>" style="text-decoration:none; color:white">
         Delete</a></button>
       <%}%>
     </div>

@@ -1,0 +1,65 @@
+<%- include ../partials/header.ejs %> <%- include ../partials/main_nav.ejs %>
+
+<!-- Main Content -->
+<main class="container">
+  <form class="form" method="post">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-8">
+      <h1><%=title %></h1>
+      <% if(BracketList.length == 0){ %>
+        <button type="button" class="btn btn-dark btn-lg px-4 gap-3 text-white">
+          <a href="/bracket-list/createPage/" style="text-decoration:none; color:white">
+          Create Tournament
+        </button>&nbsp;
+        <h1>No Tournament Created</h1>
+      </br>
+      <% } else{ %>  
+        
+     
+      <button type="button" class="btn btn-dark btn-lg px-4 gap-3 text-white">
+        <a href="/bracket-list/createPage/" style="text-decoration:none; color:white">
+        Create Tournament
+      </button>&nbsp;
+    </br>
+     
+      <table class="table table-bordered table-striped>
+        <thred class=" table bg-danger">
+        <tr>
+          <th class="text-center">Number</th>
+          <th class="text-center">Tournament Info</th>
+          <th class="text-center">Game Info</th>
+          <th class="text-center">Total teams</th>
+          </tr>
+        </thred>
+        <% for (let count=0; count< BracketList.length; count++){%>
+          <tr>
+            <td class="text-centre "><%=count+1 %></td>
+            <td class="text-centre "><%=BracketList[count].tournamentName %></td>
+            <td class="text-centre "><%=BracketList[count].gameType %></td>
+            <td class="text-centre "><%=BracketList[count].players %></td>
+            <td class="text-centre "><button class="btn btn-primary btn-sm">
+              <a href="/bracket-list/show/<%= BracketList[count]._id %>" style="text-decoration:none; color:white">Detail</a>
+            </button></td>
+            <td class="text-centre ">
+              <button class="btn btn-warning btn-sm" >
+              <a href="/bracket-list/delete/<%= BracketList[count]._id %>" style="text-decoration:none; color:white">
+              Delete</a></button></td>
+            
+          </tr>
+          <%}%>
+      </table>
+      <br>
+      
+      <% } %>
+      <div style="height: 40px;">
+
+      </div>
+      
+      
+      
+    </div>
+  </div>
+  </form>
+</main>
+
+<%- include ../partials/bottom_nav.ejs %> <%- include ../partials/footer.ejs %>

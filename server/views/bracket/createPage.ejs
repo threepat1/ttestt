@@ -1,6 +1,8 @@
 <% include ../partials/header.ejs %>
 <% include ../partials/main_nav.ejs %>
 
+
+<% var form_value = 8; %>
 <div class="container">
     <div class="row">
       <div class="col-md-offset-1 col-md-10">
@@ -31,23 +33,120 @@
             </div>
             <div class="form-group">
             
-                <input type="radio" id="players" name="players" value="8">8
-                <input type="radio" id="players" name="players" value="16">16 
+                <input type="radio" id="players8" name="players" value="8" />8
+                <input type="radio" id="players16" name="players" value="16" checked/>16 
             
             </div>
 	
-            <% for (let count =0; count < 8 ; count++) { %> 
+       
             <!--the 8 here can be replaced with a variable from the url but 
             I want to wait for more of the site to work out this part-->
-                        <div class="form-group">
+                        <div class="container" style="display: flex;">
+                            <div class="row">
+                                <div class="col" id="col1">
                             <label for="tNameTextField">Enter Name</label>
                             <input type="text" class="form-control"
                             id="nameTextField"
                             placeholder="Enter Name"
                             name="teams" 
-                           required>
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                        </div> 
+                        <div class="col" id="col2" style="visibility: visible;">
+                              
+                            <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
+                           <label for="tNameTextField">Enter Name</label>
+                            <input type="text" class="form-control"
+                            id="nameTextField"
+                            placeholder="Enter Name"
+                            name="teams" 
+                           >
                         </div>
-                <% } %>
+                        </div>
+                        </div>
+          
 	
 	    
             <button class="btn btn-primary" type="submit" >
@@ -62,6 +161,27 @@
 
 </div>
 </div>
+
+<script>
+$( document ).ready(function() {
+
+$( "#players8" ).click(function() {
+    if( $(this).is(':checked') ){
+
+        // if you want to change your Div's css property 
+        $("#col2").css("display","hidden");
+
+    }else if( $('#players16').is(':checked') ){
+
+        // Reverting back visibility to visible
+        $("#col2").css("display","flex");
+
+    }
+    },
+    );
+
+});
+  </script>
 
 <% include ../partials/bottom_nav.ejs %>
 <% include ../partials/footer.ejs %>

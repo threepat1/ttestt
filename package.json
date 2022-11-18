@@ -17,7 +17,8 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "jquery": "^3.5.1",
+    "jquery": "^3.6.1",
+    "jsdom": "^20.0.2",
     "mongoose": "^6.6.2",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.20",
@@ -26,6 +27,5 @@
   "author": "",
   "license": "ISC",
   "main": "server.js",
-  "devDependencies": {},
   "description": ""
 }
